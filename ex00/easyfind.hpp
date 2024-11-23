@@ -1,7 +1,7 @@
-#include <iostream>
+#include <algorithm>
 
-
-template <typename T> int easyfind(T& container, int val)
+template <typename T>
+typename T::iterator easyfind(T& container, int val)
 {
     return std::find(container.begin(), container.end(), val);
 }
