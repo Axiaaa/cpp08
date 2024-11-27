@@ -4,24 +4,37 @@
 int main()
 {
     MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    std::cout << mstack.top() << std::endl;
+    mstack.push(42);
+    mstack.push(21);
+    mstack.push(84);
+    std::cout << "Top element: " << mstack.top() << std::endl;
     mstack.pop();
-    std::cout << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
+    std::cout << "Size after pop: " << mstack.size() << std::endl;
+
+    mstack.push(7);
+    mstack.push(14);
+    mstack.push(28);
+    mstack.push(56);
+
+    std::cout << "Elements in stack:" << std::endl;
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
     {
-    std::cout << *it << std::endl;
-    ++it;
+        std::cout << *it << std::endl;
     }
-    std::stack<int> s(mstack);
+
+    std::cout << "Testing copy constructor:" << std::endl;
+    MutantStack<int> copyStack(mstack);
+    for (MutantStack<int>::iterator it = copyStack.begin(); it != copyStack.end(); ++it)
+    {
+        std::cout << *it << std::endl;
+    }
+
+    std::cout << "Testing assignment operator:" << std::endl;
+    MutantStack<int> assignedStack;
+    assignedStack = mstack;
+    for (MutantStack<int>::iterator it = assignedStack.begin(); it != assignedStack.end(); ++it)
+    {
+        std::cout << *it << std::endl;
+    }
     return 0;
 }
