@@ -32,9 +32,11 @@ int main()
     std::cout << "Testing assignment operator:" << std::endl;
     MutantStack<int> assignedStack;
     assignedStack = mstack;
-    for (MutantStack<int>::iterator it = assignedStack.begin(); it != assignedStack.end(); ++it)
+    MutantStack<int>::iterator it = assignedStack.begin();
+    while (it != assignedStack.end())
     {
         std::cout << *it << std::endl;
+        it++;
     }
     return 0;
 }
